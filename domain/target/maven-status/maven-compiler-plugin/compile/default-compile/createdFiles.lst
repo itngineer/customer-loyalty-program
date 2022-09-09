@@ -1,9 +1,0 @@
-com\bednarz\domain\TransactionMapper.class
-com\bednarz\domain\transaction\Transaction.class
-com\bednarz\domain\TransactionAdapter.class
-com\bednarz\domain\transaction\Transaction$TransactionBuilder.class
-com\bednarz\domain\model\Customer.class
-com\bednarz\domain\service\TransactionService.class
-com\bednarz\domain\TransactionMapperImpl.class
-com\bednarz\domain\DefaultOrderServiceFactory.class
-com\bednarz\domain\model\Product.class

@@ -15,7 +15,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-"customerId": 1,
+"customerId": 2,
 "entries": [
   {
     "name": "Orange Juice",
