@@ -12,7 +12,6 @@ import java.util.Locale;
 @Component
 @RequiredArgsConstructor
 public class RestExceptionResponseBuilder {
-
     private final MessageSource messageSource;
 
     public ResponseEntity<ExceptionDto> build(String description, HttpStatus status) {

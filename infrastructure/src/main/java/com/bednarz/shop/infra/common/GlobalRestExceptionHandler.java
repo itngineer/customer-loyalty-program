@@ -16,7 +16,6 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 @ControllerAdvice
 @RequiredArgsConstructor
 public class GlobalRestExceptionHandler {
-
     private static final String KEY_VALUE_SEPARATOR = " ";
     private static final String DELIMITER = ", ";
 

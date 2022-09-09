@@ -9,7 +9,6 @@ public class WrongDataException extends ResponseStatusException {
     public WrongDataException(String message){
         super(HttpStatus.UNPROCESSABLE_ENTITY, message);
     }
-
     @Override
     public HttpHeaders getResponseHeaders() {
         return new HttpHeaders();
