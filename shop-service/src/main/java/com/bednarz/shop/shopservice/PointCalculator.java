@@ -16,7 +16,7 @@ public class PointCalculator implements OrderPointCalculator {
                 .map(ProductPort::getPrice).reduce(0D, (a, b) -> a + b);
         int value = transactionValue.intValue();
         if (value > firstLevel) {
-            points+=value - 100 > 0 ? 50 : 100 - value;
+            points+=value - 100 > 0 ? 50 : value - firstLevel;
         }
         if (value > secondLevel) {
             points += (value - secondLevel) * 2;

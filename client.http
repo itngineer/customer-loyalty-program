@@ -10,30 +10,55 @@ Content-Type: application/json
 }
 
 ###
+//create new transaction for customer
 POST http://localhost:8080/api/order
 Accept: application/json
 Content-Type: application/json
 
 {
-"customerId": 2,
+"customerId": 1,
 "entries": [
   {
-    "name": "Orange Juice",
-    "price": 100
+    "name": "Product 1",
+    "price": 90.24
   },
   {
-    "name": "Applce Juice",
-    "price": 20
+    "name": "Product 2",
+    "price": 24
   }
-]
+],
+  "transactionDate": "2022-08-25T21:34:55"
 }
 
 ###
-GET http://localhost:8080/reward/1
+//get points data for customer based on id
+GET http://localhost:8080/api/reward/1
 Accept: application/json
 Content-Type: application/json
 
 ###
-GET http://localhost:8080/reward
+//get points data for all users
+GET http://localhost:8080/api/reward
 Accept: application/json
 Content-Type: application/json
+
+###
+//rest exception handler example
+POST http://localhost:8080/api/order
+Accept: application/json
+Content-Type: application/json
+
+{
+"customerId": 3,
+"entries": [
+{
+"name": "Product 1",
+"price": 40
+},
+{
+"name": "Product 2",
+"price": 24
+}
+],
+"transactionDate": "2022-08-25T21:34:55"
+}

@@ -1,8 +1,11 @@
 package com.bednarz.shop.infra.rest;
 
+import com.bednarz.ports.CustomerDataUseCase;
 import com.bednarz.ports.PlaceOrderUseCase;
+import com.bednarz.ports.model.CustomerInfo;
 import com.bednarz.shop.infra.persistence.JpaCustomerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -18,7 +23,7 @@ public class ShopApi {
 
     private final RestOrderMapper mapper;
     private final PlaceOrderUseCase placeOrderUseCase;
-//    private final CustomerDataUseCase customerDataUseCase;
+    private final CustomerDataUseCase customerDataUseCase;
     private final JpaCustomerRepository customerRepository;
 
     @PostMapping("/order")
@@ -28,22 +33,15 @@ public class ShopApi {
         return ResponseEntity.accepted().build();
     }
 
-/*    @ExceptionHandler(WrongDataException.class)
-    public ResponseEntity<String> handleNoSuchElementFoundException(
-            WrongDataException exception
-    ) {
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(exception.getMessage());
-    }*/
-
     @GetMapping("/reward/{customerId}")
-    public ResponseEntity<String> showReward(@PathVariable String customerId) {
-        return ResponseEntity.accepted().build();
+    public ResponseEntity<CustomerInfo> showReward(@PathVariable Long customerId) {
+        CustomerInfo info = customerDataUseCase.getInfo(customerId);
+        return new ResponseEntity<>(info, HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/reward")
-    public ResponseEntity<String> showRewardFroAll() {
-        return ResponseEntity.accepted().build();
+    public ResponseEntity<List<CustomerInfo>> showRewardForAll() {
+        List<CustomerInfo> info = customerDataUseCase.getInfo();
+        return new ResponseEntity<>(info, HttpStatus.ACCEPTED);
     }
 }

@@ -1,10 +1,13 @@
 package com.bednarz.ports;
 
+import com.bednarz.ports.model.CustomerInfo;
 import com.bednarz.ports.model.OrderPort;
+
+import java.util.List;
 
 public interface CustomerDataUseCase {
 
-    void getInfo();
+    List<CustomerInfo> getInfo();
 
-    void getInfo(Long customerId);
+    CustomerInfo getInfo(Long customerId);
 }

@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
+import java.util.Set;
 
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -26,9 +27,9 @@ import java.util.List;
 public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-    String name;
+    private Long id;
+    private String name;
     @OneToMany(cascade = {CascadeType.ALL})
-    List<TransactionEntity> transactions;
+    private Set<TransactionEntity> transactions;
 
 }

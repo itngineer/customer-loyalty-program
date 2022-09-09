@@ -1,5 +1,6 @@
 package com.bednarz.shop.infra.persistence;
 
+import com.bednarz.ports.model.ProductPort;
 import com.bednarz.shop.infra.CustomerEntity;
 import com.bednarz.shop.infra.TransactionEntity;
 import com.bednarz.ports.TransactionRepositoryPort;
@@ -30,8 +31,14 @@ public class TransactionRepositoryAdapter implements TransactionRepositoryPort {
             throw new WrongDataException("user with given id not exists");
         }
 
+        CustomerEntity customer = byId.get();
         TransactionEntity transactionEntity = orderMapper.orderToTransaction(order);
-        transactionRepository.save(transactionEntity);
+        Double transactionValue = order.getEntries().stream()
+                .map(ProductPort::getPrice).reduce(0D, Double::sum);
+        transactionEntity.setTransactionValue(transactionValue);
+        transactionEntity.setCustomer(customer);
+        customer.getTransactions().add(transactionEntity);
+        customerRepository.save(customer);
         log.info("Points: " + transactionRepository.findAll().size());
     }
 }

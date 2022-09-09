@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
+import java.util.Set;
 
 @SpringBootApplication(scanBasePackages = "com.bednarz")
 @EnableJpaRepositories(basePackages = "com.bednarz")
@@ -29,7 +29,14 @@ public class ShopServiceApplication {
             var firstCustomer = new CustomerEntity();
             firstCustomer.setId(1L);
             firstCustomer.setName("Tony");
-            firstCustomer.setTransactions(new ArrayList<>());
+            firstCustomer.setTransactions(Set.of());
+            customerRepository.save(firstCustomer);
+        }
+        if (customerRepository.findById(2L).isEmpty()) {
+            var firstCustomer = new CustomerEntity();
+            firstCustomer.setId(2L);
+            firstCustomer.setName("Lucene");
+            firstCustomer.setTransactions(Set.of());
             customerRepository.save(firstCustomer);
         }
     }

@@ -14,7 +14,7 @@ class PointCalculatorTest {
     PointCalculator pointCalculator = new PointCalculator();
 
     @Test
-    public void shouldReturnCorrectPointValue() {
+    public void calculatorAlgorithmTest() {
         ProductPort pp = new ProductPort();
         pp.setId(1L);
         pp.setName("Notebook");
@@ -22,7 +22,22 @@ class PointCalculatorTest {
         OrderPort orderPort = new OrderPort(1L, List.of(pp), LocalDateTime.of(2001, 2, 3, 4, 5), 0);
         Integer points = pointCalculator.calculate(orderPort);
         assertTrue(points == 90);
+    }
 
+    @Test
+    public void calculatorDoublePriceTest() {
+        ProductPort p1 = new ProductPort();
+        p1.setId(1L);
+        p1.setName("Notebook");
+        p1.setPrice(100.99D);
+
+        ProductPort p2 = new ProductPort();
+        p2.setId(1L);
+        p2.setName("Notebook");
+        p2.setPrice(19.99D);
+        OrderPort orderPort = new OrderPort(1L, List.of(p1, p2), LocalDateTime.of(2001, 2, 3, 4, 5), 0);
+        Integer points = pointCalculator.calculate(orderPort);
+        assertTrue(points == 90);
     }
 
 }
