@@ -11,9 +11,13 @@ public class PointCalculator implements OrderPointCalculator {
     private final Integer secondLevel = 100;
 
     public Integer calculate(OrderPort orderPort) {
-        Integer points = 0;
         Double transactionValue = orderPort.getEntries().stream()
                 .map(ProductPort::getPrice).reduce(0D, (a, b) -> a + b);
+        return transactionValueToPoints(transactionValue);
+    }
+
+    public Integer transactionValueToPoints(Double transactionValue) {
+        Integer points = 0;
         int value = transactionValue.intValue();
         if (value > firstLevel) {
             points+=value - 100 > 0 ? 50 : value - firstLevel;
@@ -23,4 +27,5 @@ public class PointCalculator implements OrderPointCalculator {
         }
         return points;
     }
+
 }

@@ -44,4 +44,5 @@ public class ShopApi {
         List<CustomerInfo> info = customerDataUseCase.getInfo();
         return new ResponseEntity<>(info, HttpStatus.ACCEPTED);
     }
+
 }

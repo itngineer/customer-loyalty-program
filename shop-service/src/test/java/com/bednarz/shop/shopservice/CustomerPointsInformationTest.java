@@ -3,6 +3,7 @@ package com.bednarz.shop.shopservice;
 import com.bednarz.ports.model.CustomerInfo;
 import com.bednarz.shop.infra.CustomerEntity;
 import com.bednarz.shop.infra.TransactionEntity;
+import com.bednarz.shop.infra.common.WrongDataException;
 import com.bednarz.shop.infra.persistence.CustomerRepositoryAdapter;
 import com.bednarz.shop.infra.persistence.JpaCustomerRepository;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +23,7 @@ import java.util.Set;
 import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)
-public class CustomerRepositoryAdapterTest {
+public class CustomerPointsInformationTest {
 
     CustomerRepositoryAdapter customerRepositoryAdapter;
     CustomerEntity customerEntity = null;
@@ -55,6 +56,5 @@ public class CustomerRepositoryAdapterTest {
         Assertions.assertEquals(Long.valueOf(customerInfo.getLastMonthRewardPoints()), daysInLastMonth);
         Assertions.assertEquals(Long.valueOf(customerInfo.getLast3MonthRewardPoints()), daysInLast3Months);
     }
-
 
 }

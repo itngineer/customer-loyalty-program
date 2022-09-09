@@ -40,4 +40,15 @@ class PointCalculatorTest {
         assertTrue(points == 90);
     }
 
+    @Test
+    public void transactionUnder50DollarsCalculatorTest() {
+        ProductPort p1 = new ProductPort();
+        p1.setId(1L);
+        p1.setName("Notebook");
+        p1.setPrice(49.99D);
+        OrderPort orderPort = new OrderPort(1L, List.of(p1), LocalDateTime.of(20022, 8, 3, 4, 5), 0);
+        Integer points = pointCalculator.calculate(orderPort);
+        assertTrue(points == 0);
+    }
+
 }

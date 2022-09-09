@@ -2,8 +2,19 @@
 
 Application written using **Clean Architecture** designed to add points for the customer based on an order as described below
 
-# How to test
+### How to run application
+1. Download repository
+2. Build root module 
+3. Open ShopServiceApplication starter class 
+4. Run
+
+
+
+### How to test
 After running the application on the local environment, use the client.http file containing correct rest messages to the application api
+
+### How to test
+Predefined data (users and transaction) are added when the program is started in @PostContruct init() method
 
 # Coding task
 

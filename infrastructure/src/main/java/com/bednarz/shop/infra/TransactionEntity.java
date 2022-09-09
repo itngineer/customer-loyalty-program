@@ -29,8 +29,6 @@ public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
-    private CustomerEntity customer;
     @OneToMany(cascade = {CascadeType.ALL})
     private Set<ProductEntity> products;
     private Double transactionValue;

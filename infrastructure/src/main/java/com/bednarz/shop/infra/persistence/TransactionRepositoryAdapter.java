@@ -36,7 +36,6 @@ public class TransactionRepositoryAdapter implements TransactionRepositoryPort {
         Double transactionValue = order.getEntries().stream()
                 .map(ProductPort::getPrice).reduce(0D, Double::sum);
         transactionEntity.setTransactionValue(transactionValue);
-        transactionEntity.setCustomer(customer);
         customer.getTransactions().add(transactionEntity);
         customerRepository.save(customer);
         log.info("Points: " + transactionRepository.findAll().size());
