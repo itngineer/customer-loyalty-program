@@ -1,0 +1,39 @@
+POST http://localhost:8080/api/order
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": 1,
+  "entries": {
+    "1": 2
+  }
+}
+
+###
+POST http://localhost:8080/api/order
+Accept: application/json
+Content-Type: application/json
+
+{
+"customerId": 1,
+"entries": [
+  {
+    "name": "Orange Juice",
+    "price": 100
+  },
+  {
+    "name": "Applce Juice",
+    "price": 20
+  }
+]
+}
+
+###
+GET http://localhost:8080/reward/1
+Accept: application/json
+Content-Type: application/json
+
+###
+GET http://localhost:8080/reward
+Accept: application/json
+Content-Type: application/json

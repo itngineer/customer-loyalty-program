@@ -1,0 +1,7 @@
+com\bednarz\ports\PlaceOrderUseCase.class
+com\bednarz\ports\model\OrderPortOut.class
+com\bednarz\ports\OrderPointCalculator.class
+com\bednarz\ports\TransactionRepositoryPort.class
+com\bednarz\ports\model\OrderPort.class
+com\bednarz\ports\model\ProductPort.class
+com\bednarz\ports\OrderServiceFactory.class

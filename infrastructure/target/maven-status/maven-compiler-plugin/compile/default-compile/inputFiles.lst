@@ -1,0 +1,12 @@
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\ProductEntity.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\persistence\JpaOrderMapper.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\persistence\JpaCustomerRepository.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\persistence\JpaTransactionRepository.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\persistence\TransactionRepositoryAdapter.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\rest\OrderDto.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\rest\ShopApi.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\CustomerEntity.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\TransactionEntity.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\persistence\ProductEntityMapper.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\rest\RestOrderMapper.java
+C:\Users\przemyslaw.bednarz\workspace\customer-loyalty-program\infrastructure\src\main\java\com\bednarz\shop\infra\persistence\JpaProductRepository.java
