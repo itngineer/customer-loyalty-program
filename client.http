@@ -1,15 +1,6 @@
-POST http://localhost:8080/api/order
-Accept: application/json
-Content-Type: application/json
+//there are two predefined users (id: 1, id: 2) in the application
+//for which orders can be placed
 
-{
-  "id": 1,
-  "entries": {
-    "1": 2
-  }
-}
-
-###
 //create new transaction for customer
 POST http://localhost:8080/api/order
 Accept: application/json
@@ -20,11 +11,11 @@ Content-Type: application/json
 "entries": [
   {
     "name": "Product 1",
-    "price": 90.24
+    "price": 90
   },
   {
     "name": "Product 2",
-    "price": 24
+    "price": 30
   }
 ],
   "transactionDate": "2022-08-25T21:34:55"

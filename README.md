@@ -1,3 +1,10 @@
+# INFO
+
+Application written using **Clean Architecture** designed to add points for the customer based on an order as described below
+
+# How to test
+After running the application on the local environment, use the client.http file containing correct rest messages to the application api
+
 # Coding task
 
 A retailer offers a rewards program to its customers, awarding points based on each recorded purchase.
