@@ -9,12 +9,12 @@ Application written using **Clean Architecture** designed to add points for the 
 4. Run
 
 
-
 ### How to test
-After running the application on the local environment, use the client.http file containing correct rest messages to the application api
+The application includes unit tests, however, to check its full functionality you can use the prepared http query covering application API, which can be found in the file http.client
 
-### How to test
-Predefined data (users and transaction) are added when the program is started in @PostContruct init() method
+
+### Predefined data
+Users and transaction are added when the program is started in @PostContruct init() method
 
 # Coding task
 
