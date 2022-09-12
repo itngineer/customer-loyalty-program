@@ -21,13 +21,22 @@ public class TransactionService {
     public void perform(Transaction transaction){
         log.info("New transaction: " + transaction);
         Integer pointsGained = orderPointCalculator.calculate(mapper.transactionToOrderPort(transaction));
-        log.info("User: " + transaction.getCustomerId() + "gained: " + pointsGained + " points");
+        log.info("User: " + transaction.getCustomerId() + " gained: " + pointsGained + " points");
         transaction.setPoints(pointsGained);
         if(transaction.getTransactionDate() == null){
             transaction.setTransactionDate(LocalDateTime.now());
         }
         OrderPort orderPort = mapper.transactionToOrderPort(transaction);
         transactionRepositoryPort.save(orderPort);
+    }
+    public void changeData(Transaction transaction){
+        log.info("Change transaction data");
+        OrderPort orderPort = mapper.transactionToOrderPort(transaction);
+        if(!transaction.getEntries().isEmpty()){
+            orderPort.setPoints(orderPointCalculator.calculate(orderPort));
+        }
+        transactionRepositoryPort.update(orderPort);
+
     }
 
 }

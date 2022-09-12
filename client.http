@@ -34,6 +34,28 @@ Accept: application/json
 Content-Type: application/json
 
 ###
+//transaction update
+//create new transaction for customer
+PATCH http://localhost:8080/api/order/13
+Accept: application/json
+Content-Type: application/json
+
+{
+  "entries": [
+    {
+      "name": "Product 1",
+      "price": 20
+    },
+    {
+      "name": "Product 2",
+      "price": 50
+    }
+  ],
+  "transactionDate": "2022-08-30T21:34:55"
+}
+
+
+###
 //rest exception handler example
 POST http://localhost:8080/api/order
 Accept: application/json

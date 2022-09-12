@@ -19,7 +19,7 @@ class PointCalculatorTest {
         pp.setId(1L);
         pp.setName("Notebook");
         pp.setPrice(120D);
-        OrderPort orderPort = new OrderPort(1L, List.of(pp), LocalDateTime.of(2001, 2, 3, 4, 5), 0);
+        OrderPort orderPort = new OrderPort(1L, null, List.of(pp), LocalDateTime.of(2001, 2, 3, 4, 5), 0);
         Integer points = pointCalculator.calculate(orderPort);
         assertTrue(points == 90);
     }
@@ -35,7 +35,7 @@ class PointCalculatorTest {
         p2.setId(1L);
         p2.setName("Notebook");
         p2.setPrice(19.99D);
-        OrderPort orderPort = new OrderPort(1L, List.of(p1, p2), LocalDateTime.of(2001, 2, 3, 4, 5), 0);
+        OrderPort orderPort = new OrderPort(1L, null, List.of(p1, p2), LocalDateTime.of(2001, 2, 3, 4, 5), 0);
         Integer points = pointCalculator.calculate(orderPort);
         assertTrue(points == 90);
     }
@@ -46,7 +46,7 @@ class PointCalculatorTest {
         p1.setId(1L);
         p1.setName("Notebook");
         p1.setPrice(49.99D);
-        OrderPort orderPort = new OrderPort(1L, List.of(p1), LocalDateTime.of(20022, 8, 3, 4, 5), 0);
+        OrderPort orderPort = new OrderPort(1L, null, List.of(p1), LocalDateTime.of(20022, 8, 3, 4, 5), 0);
         Integer points = pointCalculator.calculate(orderPort);
         assertTrue(points == 0);
     }

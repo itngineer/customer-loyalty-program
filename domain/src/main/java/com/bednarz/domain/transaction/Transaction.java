@@ -22,6 +22,7 @@ import java.util.List;
 @ToString
 public class Transaction {
     private Long customerId;
+    private Long transactionId;
     private LocalDateTime transactionDate;
     private List<Product> entries;
     private Integer points;

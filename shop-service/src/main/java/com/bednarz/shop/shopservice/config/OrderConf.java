@@ -25,4 +25,5 @@ public class OrderConf {
     public CustomerDataUseCase customerDataUseCase(CustomerRepositoryPort customerRepositoryPort) {
         return orderServiceFactory.create(customerRepositoryPort);
     }
+
 }

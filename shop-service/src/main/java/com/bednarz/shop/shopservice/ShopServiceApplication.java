@@ -31,9 +31,20 @@ public class ShopServiceApplication {
     @PostConstruct
     public void init() {
 
+        ProductEntity p1 = new ProductEntity();
+        p1.setProductName("Notebook");
+        p1.setProductPrice(90D);
+
+        ProductEntity p2 = new ProductEntity();
+        p2.setProductName("Keyboard");
+        p2.setProductPrice(30D);
+
+        Set<ProductEntity> products = Set.of(p1, p2);
         TransactionEntity t1 = new TransactionEntity();
         t1.setTransactionDate(LocalDateTime.now().minusDays(40));
-        Double transactionValue = 120D;
+        t1.setProducts(products);
+        Double transactionValue = products.stream().map(ProductEntity::getProductPrice)
+                .reduce(0D, Double::sum);
         t1.setTransactionValue(transactionValue);
         t1.setPoints(pointCalculator.transactionValueToPoints(transactionValue));
 

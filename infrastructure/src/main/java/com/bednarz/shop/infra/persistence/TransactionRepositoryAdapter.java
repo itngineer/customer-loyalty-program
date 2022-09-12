@@ -1,10 +1,10 @@
 package com.bednarz.shop.infra.persistence;
 
+import com.bednarz.ports.TransactionRepositoryPort;
+import com.bednarz.ports.model.OrderPort;
 import com.bednarz.ports.model.ProductPort;
 import com.bednarz.shop.infra.CustomerEntity;
 import com.bednarz.shop.infra.TransactionEntity;
-import com.bednarz.ports.TransactionRepositoryPort;
-import com.bednarz.ports.model.OrderPort;
 import com.bednarz.shop.infra.common.WrongDataException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
@@ -22,6 +22,7 @@ public class TransactionRepositoryAdapter implements TransactionRepositoryPort {
     private final JpaTransactionRepository transactionRepository;
     private final JpaCustomerRepository customerRepository;
     private final JpaOrderMapper orderMapper;
+    private final JpaProductMapper productMapper;
 
 
     @Override
@@ -39,5 +40,26 @@ public class TransactionRepositoryAdapter implements TransactionRepositoryPort {
         customer.getTransactions().add(transactionEntity);
         customerRepository.save(customer);
         log.info("Points: " + transactionRepository.findAll().size());
+    }
+
+    @Override
+    public void update(OrderPort order) {
+        Optional<TransactionEntity> transactionById = transactionRepository.findById(order.getTransactionId());
+        if (transactionById.isEmpty()) {
+            throw new WrongDataException("Given transaction not exists");
+        }
+        TransactionEntity transaction = transactionById.get();
+        orderMapper.orderToTransaction(order);
+        transaction.setTransactionDate(order.getTransactionDate()!=null ? order.getTransactionDate() : transaction.getTransactionDate() );
+        if(!order.getEntries().isEmpty()){
+            transaction.setTransactionValue(order.getEntries().stream()
+                    .map(ProductPort::getPrice).reduce(0D, Double::sum));
+            transaction.setPoints(order.getPoints());
+            transaction.getProducts().clear();
+            for(ProductPort productPort : order.getEntries()){
+                transaction.getProducts().add(productMapper.productPortToProductEntity(productPort));
+            }
+        }
+        transactionRepository.save(transaction);
     }
 }

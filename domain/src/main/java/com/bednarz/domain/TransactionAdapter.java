@@ -19,4 +19,10 @@ public class TransactionAdapter implements PlaceOrderUseCase {
         Transaction transaction = transactionMapper.orderInToTransaction(orderPort);
         transactionService.perform(transaction);
     }
+
+    @Override
+    public void change(OrderPort orderPort) {
+        Transaction transaction = transactionMapper.orderInToTransaction(orderPort);
+        transactionService.changeData(transaction);
+    }
 }
