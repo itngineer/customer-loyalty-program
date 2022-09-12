@@ -1,6 +1,6 @@
 # INFO
 
-Application written using **Clean Architecture** designed to add points for the customer based on an order as described below
+Application written using **Clean Architecture** designed to add loyalty points for the customer based on an order value as described below
 
 ### How to run application
 1. Download repository
