@@ -1,3 +1,0 @@
-2022-09-09 04:05:38 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CUSTOMER_ENTITY" not found (this database is empty); SQL statement:
-select customeren0_.id as id1_0_0_ from customer_entity customeren0_ where customeren0_.id=? [42104-214]
