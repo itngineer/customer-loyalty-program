@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @Component
@@ -38,6 +41,7 @@ public class TransactionRepositoryAdapter implements TransactionRepositoryPort {
                 .map(ProductPort::getPrice).reduce(0D, Double::sum);
         transactionEntity.setTransactionValue(transactionValue);
         customer.getTransactions().add(transactionEntity);
+        transactionEntity.setCustomer(customer);
         customerRepository.save(customer);
         log.info("Points: " + transactionRepository.findAll().size());
     }
@@ -61,5 +65,23 @@ public class TransactionRepositoryAdapter implements TransactionRepositoryPort {
             }
         }
         transactionRepository.save(transaction);
+    }
+
+    @Override
+    public void delete(Long transactionId) {
+        Optional<TransactionEntity> transactionById = transactionRepository.findById(transactionId);
+        if (transactionById.isEmpty()) {
+            throw new WrongDataException("Given transaction not exists");
+        }
+        TransactionEntity transaction = transactionById.get();
+        Optional<CustomerEntity> byId = customerRepository.findById(transaction.getCustomer().getId());
+        if (transactionById.isEmpty()) {
+            throw new WrongDataException("Given transaction not exists");
+        }
+        CustomerEntity customer = byId.get();
+        Set<TransactionEntity> toRemove = customer.getTransactions().stream().filter(
+                tr -> tr.getId().equals(transactionId)).collect(Collectors.toSet());
+        customer.getTransactions().removeAll(toRemove);
+        transactionRepository.deleteAll(toRemove);
     }
 }

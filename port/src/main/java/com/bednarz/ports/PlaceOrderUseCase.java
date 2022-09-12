@@ -6,4 +6,5 @@ public interface PlaceOrderUseCase {
 
     void place(OrderPort orderPort);
     void change(OrderPort orderPort);
+    void delete(Long transactionId);
 }

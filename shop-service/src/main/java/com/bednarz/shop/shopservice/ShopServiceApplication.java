@@ -53,6 +53,7 @@ public class ShopServiceApplication {
             firstCustomer.setId(1L);
             firstCustomer.setName("Tony");
             firstCustomer.setTransactions(Set.of(t1));
+            t1.setCustomer(firstCustomer);
             customerRepository.save(firstCustomer);
         }
         if (customerRepository.findById(2L).isEmpty()) {

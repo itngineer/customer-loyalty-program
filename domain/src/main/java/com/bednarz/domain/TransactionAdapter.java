@@ -25,4 +25,9 @@ public class TransactionAdapter implements PlaceOrderUseCase {
         Transaction transaction = transactionMapper.orderInToTransaction(orderPort);
         transactionService.changeData(transaction);
     }
+
+    @Override
+    public void delete(Long transactionId) {
+        transactionService.delete(transactionId);
+    }
 }

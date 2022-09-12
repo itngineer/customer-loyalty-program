@@ -39,4 +39,7 @@ public class TransactionService {
 
     }
 
+    public void delete(Long transactionId) {
+        transactionRepositoryPort.delete(transactionId);
+    }
 }

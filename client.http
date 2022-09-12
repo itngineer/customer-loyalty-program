@@ -36,7 +36,7 @@ Content-Type: application/json
 ###
 //transaction update
 //create new transaction for customer
-PATCH http://localhost:8080/api/order/13
+PATCH http://localhost:8080/api/order/2
 Accept: application/json
 Content-Type: application/json
 
@@ -53,6 +53,13 @@ Content-Type: application/json
   ],
   "transactionDate": "2022-08-30T21:34:55"
 }
+
+###
+//transaction delete
+//create new transaction for customer
+DELETE http://localhost:8080/api/order/2
+Accept: application/json
+Content-Type: application/json
 
 
 ###

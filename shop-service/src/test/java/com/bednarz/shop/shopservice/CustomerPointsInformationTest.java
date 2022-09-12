@@ -44,6 +44,7 @@ public class CustomerPointsInformationTest {
         Set<TransactionEntity> transactions = new HashSet<>();
         for (int i = 0; i < days; i++) {
             TransactionEntity tr = new TransactionEntity();
+            tr.setId(i+1L);
             tr.setPoints(1);
             tr.setTransactionDate(LocalDateTime.now().minusDays(i));
             transactions.add(tr);
